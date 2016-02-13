@@ -1,0 +1,41 @@
+/* PRESETS */
+html, body {
+	position: relative;
+	margin: 0 0;
+	padding: 0 0;
+	background-color: black;
+}
+
+
+/* TEXT */
+#coords {
+	display: inline-block;
+	background-color: rgba(255, 0, 0, 0.15);
+	padding: 0.7em;
+	z-index: 20;
+}
+
+#coords p {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	z-index: 20;
+	color: grey;
+}
+
+
+
+/* IMAGES */
+#left, #right {
+	position: absolute;
+	top: 0;
+}
+
+#left {
+	left: 0;
+	width: 50%;
+}
+
+#right {
+	left: 50%;
+	width: 50%;
+}
