@@ -29,7 +29,7 @@ window.setTimeout(function() {
 }, 0);
 
 
-var mode = "deviceorientation"
+var mode = "deviceorientation";
 
 window.addEventListener(mode, function(eventData) {
 	// console.log(eventData.absolute);
@@ -39,7 +39,8 @@ window.addEventListener(mode, function(eventData) {
 		beta = eventData.accelerationIncludingGravity.x;
 	}
 
-	x = ~~beta + 90;
+	x = ~~beta - 90;
+	if (x < 0) { x = x + 360 }
 
 	if (mode == "deviceorientation"){
 		gamma = eventData.gamma; // DONE!
@@ -47,7 +48,7 @@ window.addEventListener(mode, function(eventData) {
 		gamma = eventData.accelerationIncludingGravity.y;
 	}
 
-	y = -(~~gamma) + 90;
+	y = Math.abs((-(~~gamma) + 90) - 180);
 	y = y <= 0 ? 2 : y;
 
 	// if (mode == "deviceorientation"){
