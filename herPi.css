@@ -39,3 +39,14 @@ html, body {
 	left: 50%;
 	width: 50%;
 }
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto; /* ie8 */
+    margin: 0;
+}
+div {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+}
