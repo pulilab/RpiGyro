@@ -1,18 +1,14 @@
-
+// INIT
 var x = 90;
 var y = 2;
 var z = 90;
 
-var alpha;
-var beta;
-var gamma;
+var alpha, beta, gamma;
 
 var gyroS = new WebSocket("ws://192.168.0.42:8000/");
 gyroS.onopen = function (event) {
 	console.info('Connected to WebSocket');
 };
-
-
 
 window.setTimeout(function() {
 	if (window.DeviceOrientationEvent) {
@@ -28,34 +24,22 @@ window.setTimeout(function() {
 	}
 }, 0);
 
-
-var mode = "deviceorientation";
-
-window.addEventListener(mode, function(eventData) {
-	// console.log(eventData.absolute);
-	if (mode == "deviceorientation"){
-		beta = eventData.beta; // DONE
-	} else {
-		beta = eventData.accelerationIncludingGravity.x;
-	}
+window.addEventListener("deviceorientation", function(eventData) {		
+	// BETA
+	beta = eventData.beta;
 
 	x = ~~beta - 90;
 	if (x < 0) { x = x + 360 }
 
-	if (mode == "deviceorientation"){
-		gamma = eventData.gamma; // DONE!
-	} else {
-		gamma = eventData.accelerationIncludingGravity.y;
-	}
+	// GAMMA
+	gamma = eventData.gamma;
 
 	y = Math.abs((-(~~gamma) + 90) - 180);
 	y = y <= 0 ? 2 : y;
 
-	// if (mode == "deviceorientation"){
+	// ALPHA
 	alpha = ~~eventData.alpha;
-	// } else {
-	// 	alpha = eventData.accelerationIncludingGravity.z;
-	// }
+
 	if (gamma < 0) { // up
 		z = 90;
 	} else { //down
@@ -73,16 +57,12 @@ window.addEventListener(mode, function(eventData) {
 
 });
 
-function trans(x){
-	return (Math.floor(x)+10) * 9;
-}
-
 window.setInterval(function() {
 	gyroS.send(JSON.stringify(
 		{
-			x: x, //handles propeller
+			x: x,
 			y: y,
-			z: 90
+			z: 90 //TODO: fix z
 		}
 	));
 	document.getElementById('roll').innerHTML = x;
