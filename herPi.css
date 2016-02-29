@@ -15,11 +15,12 @@ html, body {
 	z-index: 20;
 }
 
-#coords p {
+#coords p, #coords #gotOr {
 	margin-top: 0;
 	margin-bottom: 0.5em;
 	z-index: 20;
 	color: grey;
+	font-size: 1.2em;
 }
 
 
