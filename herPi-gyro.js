@@ -9,6 +9,14 @@ gyroS.onopen = function (event) {
 	document.getElementById('connected').innerHTML = 'Connected to websocket @' + webSocketAddr;
 };
 
+addEventListener("click", function() {
+
+  var el = document.documentElement;
+  var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen;
+  rfs.call(el);
+
+});
+
 
 window.setTimeout(function() {
 	if (window.DeviceOrientationEvent) {
