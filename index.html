@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>herPi</title>
-	<script src="/herPi-gyro.js"></script>
 
-	<link rel="stylesheet" href="herPi.css">
+	<title>RemRey O.o</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="/remRay-gyro.js"></script>
+	<link rel="stylesheet" href="remRay.css">
+
 </head>
-<body>
-    <div>
-        <img class="stream" src="http://192.168.0.49:8080/stream/video.mjpeg" alt="video_left">
-        <img class="stream" src="http://192.168.0.72:8080/stream/video.mjpeg" alt="video_right">
-    </div>
-	<div id="coords">
+<body id="bb">
+
+  <div id="streamparent">
+
+    <img id="stream" src="http://192.168.0.69:8080/stream/video.mjpeg">
+
+  </div>
+
+	<!-- <div id="coords">
 
 		<h3 id="connected"></h3>
-
 		<h4 id="gotOr"></h4>
 
-		<p>Roll / x:
-			<!-- ROLL -->
-			<small id="roll"></small>
-		</p>
+		<p>Roll / x:<small id="roll"></small></p>
+		<p>Pitch / y:<small id="pitch"></small></p>
+		<p>Yaw / z:<small id="yaw"></small></p>
 
-		<p>Pitch / y:
-			<!-- PITCH -->
-			<small id="pitch"></small>
-		</p>
-
-		<p>Yaw / z:
-			<!-- YAW -->
-			<small id="yaw"></small>
-		</p>
-
-	</div>
-
-	<!-- <img id="left" src="http://192.168.0.49:8080/stream/video.mjpeg">
-	<img id="right" src="http://192.168.0.72:8080/stream/video.mjpeg"> -->
+	</div> -->
 
 </body>
 </html>

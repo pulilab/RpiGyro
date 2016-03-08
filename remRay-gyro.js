@@ -5,10 +5,11 @@ var x, y, z;
 var webSocketAddr = 'ws://192.168.0.42:8000/';
 var gyroS = new WebSocket(webSocketAddr);
 
-gyroS.onopen = function (event) {
-	document.getElementById('connected').innerHTML = 'Connected to websocket @' + webSocketAddr;
-};
+			// gyroS.onopen = function (event) {
+			// 	document.getElementById('connected').innerHTML = 'Connected to websocket @' + webSocketAddr;
+			// };
 
+// SET FULLSCREEN ON CLICK / TOUCH
 addEventListener("click", function() {
 
   var el = document.documentElement;
@@ -17,11 +18,12 @@ addEventListener("click", function() {
 
 });
 
-
+// 
 window.setTimeout(function() {
-	if (window.DeviceOrientationEvent) {
-		document.getElementById('gotOr').innerHTML = 'Orientation:';
 
+	if (window.DeviceOrientationEvent) {
+
+		// document.getElementById('gotOr').innerHTML = 'Orientation:';
 
 		window.addEventListener("deviceorientation", function(eventData) {
 			// BETA
@@ -37,15 +39,18 @@ window.setTimeout(function() {
 
 		window.setTimeout(interval, 1000);
 
-
-
 	} else {
+
 		console.warn('No deviceorientation on device!!');
+
 	}
 }, 0);
 
 function interval() {
 	window.setInterval(function() {
+
+		// Ladies and gentlemen, I proudly present you...
+		// Our unique little axis-HELL !
 
 		var xx = (y > 0) ? -(y-90) :
 						(y > -45) ? 90 :
@@ -74,8 +79,8 @@ function interval() {
 				}
 			));
 
-		document.getElementById('roll').innerHTML = yy;
-		document.getElementById('pitch').innerHTML = xx;
-		document.getElementById('yaw').innerHTML = zz;
+					// document.getElementById('roll').innerHTML = yy;
+					// document.getElementById('pitch').innerHTML = xx;
+					// document.getElementById('yaw').innerHTML = zz;
 	}, 80);
 }
